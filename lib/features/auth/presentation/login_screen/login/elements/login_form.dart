@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:the_janitorial/common_widgets/textfield_widget.dart';
-import 'package:the_janitorial/features/auth/presentation/login_screen/auth_provider.dart';
+import 'package:the_janitorial/providers/auth_provider.dart';
 
 class LoginForm extends ConsumerStatefulWidget {
   const LoginForm({Key? key}) : super(key: key);

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:the_janitorial/features/auth/presentation/login_screen/login/elements/login_form.dart';
 import 'package:the_janitorial/features/auth/presentation/login_screen/logo.dart';
 import 'package:the_janitorial/features/auth/presentation/login_screen/register/register_form.dart';
 
@@ -20,8 +19,7 @@ class LoginHomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 LogoImage(),
-                // RegisterForm(),
-                LoginForm(),
+                RegisterForm(),
               ],
             ),
           ),

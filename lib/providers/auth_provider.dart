@@ -3,13 +3,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+enum Positions { teacher, janitor, sub, aide, secretary, principle, otherStaff }
+
 class Auth {
 //
+
   var email = '';
   var password = '';
+  var currentJobEnum = Positions.otherStaff;
 
-  // i may have to create the key here and use it in loginForm through the provider
+  final List<String> jobDesciptions = [
+    //have deez have a capital 1st letter like maximillian
+    Positions.teacher.name,
+    Positions.aide.name,
+    Positions.secretary.name,
+    Positions.principle.name,
+    Positions.janitor.name,
+    Positions.sub.name,
+    Positions.otherStaff.name,
+  ];
+
   submit(GlobalKey<FormState> key) {
+//
     final isValid = key.currentState!.validate();
 
     if (isValid) {
