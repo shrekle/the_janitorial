@@ -2,29 +2,26 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:the_janitorial/providers/auth_provider.dart';
 
-class BuildPicker3 extends StatefulWidget {
-  const BuildPicker3({
+class BuildPicker extends StatefulWidget {
+  const BuildPicker({
     super.key,
-    required this.jobDesciptions,
     required this.passIndex,
     required this.startingIndex,
     this.enumList,
   });
 //
-  final List<String> jobDesciptions;
   final int startingIndex;
   final Function(int) passIndex;
-  final List<Positions>? enumList;
+  final List<String>? enumList;
 
   @override
-  State<BuildPicker3> createState() => _BuildPicker3State();
+  State<BuildPicker> createState() => _BuildPickerState();
 }
 
 //when inside a listview or colum, picker will only display one thing at a time,
 // unless its put in a box or container
-class _BuildPicker3State extends State<BuildPicker3> {
+class _BuildPickerState extends State<BuildPicker> {
 //
   FixedExtentScrollController get scrollController {
     return FixedExtentScrollController(initialItem: widget.startingIndex);
@@ -74,7 +71,7 @@ class _BuildPicker3State extends State<BuildPicker3> {
             widget.enumList!.length,
             (index) {
               final isSelected = i == index;
-              final item = widget.enumList![index].name;
+              final item = widget.enumList![index];
               final color = isSelected ? primaryColor : Colors.black54;
               return Center(
                 child: Text(

@@ -3,25 +3,54 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-enum Positions { teacher, janitor, sub, aide, secretary, principle, otherStaff }
+enum Positions {
+  teacher,
+  janitor,
+  sub,
+  aide,
+  secretary,
+  principle,
+  otherStaff,
+}
+
+enum Schools {
+  elementary,
+  middle,
+  high,
+}
 
 class Auth {
 //
-
   var email = '';
   var password = '';
-  var currentJobEnum = Positions.otherStaff;
+  var currentPositionString = '';
+  var currentSchoolString = '';
 
-  final List<String> jobDesciptions = [
-    //have deez have a capital 1st letter like maximillian
-    Positions.teacher.name,
-    Positions.aide.name,
-    Positions.secretary.name,
-    Positions.principle.name,
-    Positions.janitor.name,
-    Positions.sub.name,
-    Positions.otherStaff.name,
-  ];
+  loadEnumItem(String enumItem) {
+//
+    const pos = Positions.values;
+    const sch = Schools.values;
+
+    pos.map(
+      (value) {
+        if (value.name == enumItem) {
+          currentPositionString = enumItem;
+          // return;
+        }
+      },
+    );
+
+    sch.map(
+      (value) {
+        if (value.name == enumItem) {
+          currentSchoolString = enumItem;
+          // return;
+        }
+      },
+    );
+
+    print('⚽️ $currentPositionString, $currentSchoolString');
+  }
 
   submit(GlobalKey<FormState> key) {
 //
@@ -33,12 +62,13 @@ class Auth {
       print('🤬 isValid check faliled');
     }
   }
-
-  printTF() {
-    print('♥︎ $email, $password');
-  }
 }
 
 final authProvider = Provider<Auth>((ref) {
   return Auth();
 });
+
+//use StateNotifier
+// use ref.read outside the build method when you havea stateful widget, use ref.watch 
+//inside the statefull widget(usually, maybe unless inside a call back)
+// ref.read inside lifecylces state methos(initState) and inside func declrations

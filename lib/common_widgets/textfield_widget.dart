@@ -4,14 +4,12 @@ import 'package:flutter/material.dart';
 class TextfieldWidget extends StatefulWidget {
   const TextfieldWidget(
       {super.key,
-      required this.placeholder,
-      // required this.validatorErrorMessage,
+      this.placeholder,
       required this.validator,
       required this.onSaved,
       this.isPassword = false});
 //
   final String? placeholder;
-  // final String? validatorErrorMessage;
   final bool isPassword;
   final String? Function(String?)? validator;
   final Function(String?)? onSaved; //can remove final

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:the_janitorial/common_widgets/textfield_widget.dart';
+import 'package:the_janitorial/features/auth/presentation/login_screen/login/elements/build_primary_button.dart';
 import 'package:the_janitorial/providers/auth_provider.dart';
 
 class LoginForm extends ConsumerStatefulWidget {
@@ -42,7 +43,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
               },
             ),
 
-            const SizedBox(height: 5),
+            const SizedBox(height: 10),
 
             TextfieldWidget(
               placeholder: 'password',
@@ -60,17 +61,14 @@ class _LoginFormState extends ConsumerState<LoginForm> {
               },
             ),
 
-            const SizedBox(height: 5),
+            const SizedBox(height: 20),
 // BUTTONS
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(180, 40),
-              ),
-              onPressed: () {
-                authVM.submit(_formKey);
-              },
-              child: const Text('Sign In'),
+            BuildPrimaryButton(
+              authVM: authVM,
+              formKey: _formKey,
+              text: 'Sign in',
             ),
+
             TextButton(
               onPressed: () {},
               child: const Text('Create An Account'),
@@ -81,6 +79,8 @@ class _LoginFormState extends ConsumerState<LoginForm> {
     );
   }
 }
+
+
 
 //  decoration: const InputDecoration(
 //                 border: OutlineInputBorder(

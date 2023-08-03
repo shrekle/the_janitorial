@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:the_janitorial/features/auth/presentation/login_screen/login_home_screen.dart';
+import 'package:the_janitorial/features/settings/presentation/settings_screen.dart';
 
 void main() {
   runApp(
